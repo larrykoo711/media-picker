@@ -1,0 +1,74 @@
+# Custom Styling Example
+
+Customize the appearance of Media Picker.
+
+## Demo
+
+import { BasicDemo } from '@/components/Demo'
+
+<BasicDemo />
+
+## Code
+
+```tsx filename="StylingExample.tsx" copy
+import { MediaPickerButton } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+export default function StylingExample() {
+  return (
+    <MediaPickerButton
+      className="custom-picker"
+      onSelect={(media) => console.log(media)}
+    >
+      Styled Picker
+    </MediaPickerButton>
+  );
+}
+```
+
+## CSS Variables
+
+Customize colors and spacing using CSS variables:
+
+```css filename="custom-picker.css" copy
+.custom-picker {
+  --media-picker-primary: #6366f1;
+  --media-picker-primary-hover: #4f46e5;
+  --media-picker-background: #ffffff;
+  --media-picker-foreground: #1f2937;
+  --media-picker-border: #e5e7eb;
+  --media-picker-radius: 0.75rem;
+  --media-picker-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.dark .custom-picker {
+  --media-picker-background: #1f2937;
+  --media-picker-foreground: #f9fafb;
+  --media-picker-border: #374151;
+}
+```
+
+## Available CSS Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--media-picker-primary` | `#000` | Primary accent color |
+| `--media-picker-primary-hover` | `#333` | Primary hover state |
+| `--media-picker-background` | `#fff` | Background color |
+| `--media-picker-foreground` | `#000` | Text color |
+| `--media-picker-border` | `#e5e7eb` | Border color |
+| `--media-picker-radius` | `0.5rem` | Border radius |
+| `--media-picker-shadow` | `...` | Box shadow |
+
+## Tailwind CSS Integration
+
+Works seamlessly with Tailwind CSS:
+
+```tsx filename="TailwindExample.tsx" copy
+<MediaPickerButton
+  className="rounded-xl shadow-lg"
+  onSelect={handleSelect}
+>
+  Select Media
+</MediaPickerButton>
+```

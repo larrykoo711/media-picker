@@ -1,0 +1,98 @@
+# Basic Usage
+
+Learn how to integrate Media Picker into your React application.
+
+## Simple Example
+
+The most basic usage of Media Picker:
+
+```tsx filename="App.tsx" copy
+import { MediaPicker } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+function App() {
+  const handleSelect = (media) => {
+    console.log('Selected media:', media);
+  };
+
+  return (
+    <MediaPicker onSelect={handleSelect} />
+  );
+}
+```
+
+## With Button Trigger
+
+Use `MediaPickerButton` for a button-triggered picker:
+
+```tsx filename="App.tsx" copy
+import { MediaPickerButton } from '@larrykoo711/media-picker';
+
+function App() {
+  return (
+    <MediaPickerButton
+      onSelect={(media) => console.log(media)}
+    >
+      Choose Media
+    </MediaPickerButton>
+  );
+}
+```
+
+## Controlled Mode
+
+For full control over the picker state:
+
+```tsx filename="ControlledPicker.tsx" copy
+import { useState } from 'react';
+import { MediaPicker } from '@larrykoo711/media-picker';
+
+function App() {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState([]);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>
+        Open Picker
+      </button>
+
+      <MediaPicker
+        open={open}
+        onOpenChange={setOpen}
+        selected={selected}
+        onSelect={setSelected}
+      />
+    </>
+  );
+}
+```
+
+## Multi-Select Mode
+
+Enable selection of multiple items:
+
+```tsx filename="MultiSelect.tsx" copy
+<MediaPicker
+  multiple
+  maxSelection={5}
+  onSelect={(media) => console.log(media)}
+/>
+```
+
+## Filtering by Type
+
+Show only photos or videos:
+
+```tsx filename="FilteredPicker.tsx" copy
+{/* Photos only */}
+<MediaPicker mediaType="photo" />
+
+{/* Videos only */}
+<MediaPicker mediaType="video" />
+```
+
+## Next Steps
+
+- [API Reference](/docs/api) - Explore all available props
+- [Examples](/docs/example-basic) - See more examples

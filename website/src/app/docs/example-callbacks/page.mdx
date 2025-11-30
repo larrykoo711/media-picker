@@ -1,0 +1,59 @@
+# Event Callbacks Example
+
+Handle various events during media picking.
+
+## Demo
+
+import { CallbacksDemo } from '@/components/Demo'
+
+<CallbacksDemo />
+
+## Code
+
+```tsx filename="CallbacksExample.tsx" copy
+import { MediaPickerButton } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+export default function CallbacksExample() {
+  return (
+    <MediaPickerButton
+      multiple
+      maxSelection={3}
+      onSelect={(media) => {
+        console.log('Selected:', media);
+      }}
+      onOpenChange={(open) => {
+        console.log('Picker open:', open);
+      }}
+      onCancel={() => {
+        console.log('Cancelled');
+      }}
+      onSelectionChange={(event) => {
+        console.log('Selection changed:', event.action);
+      }}
+      onMaxSelectionReached={(max) => {
+        console.log('Max selection reached:', max);
+      }}
+    >
+      Open Picker
+    </MediaPickerButton>
+  );
+}
+```
+
+## Available Callbacks
+
+| Callback | Type | Description |
+|----------|------|-------------|
+| `onSelect` | `(media: Media[]) => void` | Called when media is selected |
+| `onOpenChange` | `(open: boolean) => void` | Called when picker opens/closes |
+| `onCancel` | `() => void` | Called when picker is cancelled |
+| `onSelectionChange` | `(event) => void` | Called when selection changes |
+| `onMaxSelectionReached` | `(max: number) => void` | Called when max selection limit is reached |
+
+## Use Cases
+
+- Track user interactions for analytics
+- Show loading states during API calls
+- Handle errors gracefully
+- Sync picker state with parent component

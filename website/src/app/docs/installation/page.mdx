@@ -1,0 +1,67 @@
+# Installation
+
+## Package Manager
+
+Install Media Picker using your preferred package manager:
+
+```bash npm2yarn copy
+npm install @larrykoo711/media-picker
+```
+
+## Peer Dependencies
+
+Media Picker requires the following peer dependencies:
+
+```json filename="package.json" copy
+{
+  "react": ">=18.0.0",
+  "react-dom": ">=18.0.0"
+}
+```
+
+## CSS Import
+
+Import the required CSS styles in your application:
+
+```tsx filename="app.tsx" copy
+import '@larrykoo711/media-picker/styles.css';
+```
+
+## API Key Setup
+
+You need a Pexels API key to use Media Picker. Get one for free at [pexels.com/api](https://www.pexels.com/api/).
+
+### Option 1: Environment Variable
+
+Set the `PEXELS_API_KEY` environment variable:
+
+```bash filename=".env.local" copy
+PEXELS_API_KEY=your_api_key_here
+```
+
+### Option 2: Props Configuration
+
+Pass the API key directly via props:
+
+```tsx filename="app.tsx" copy
+<MediaPicker apiKey="your_api_key_here" />
+```
+
+## TypeScript Configuration
+
+Media Picker is written in TypeScript and includes type definitions. No additional configuration is required.
+
+```json filename="tsconfig.json" copy
+{
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "esModuleInterop": true
+  }
+}
+```
+
+## Next Steps
+
+Now that you have Media Picker installed, let's learn how to use it:
+
+- [Basic Usage](/docs/basic-usage) - Learn the fundamentals

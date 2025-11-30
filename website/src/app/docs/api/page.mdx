@@ -1,0 +1,121 @@
+# API Reference
+
+Complete API documentation for Media Picker components.
+
+## MediaPicker
+
+The main component for displaying the media picker.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `onSelect` | `(media: Media[]) => void` | - | Callback when media is selected |
+| `open` | `boolean` | - | Controlled open state |
+| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
+| `multiple` | `boolean` | `false` | Allow multiple selection |
+| `maxSelection` | `number` | `Infinity` | Maximum items to select |
+| `mediaType` | `'photo' \| 'video' \| 'all'` | `'all'` | Filter by media type |
+| `apiKey` | `string` | - | Pexels API key |
+| `locale` | `string` | `'en'` | UI language |
+| `className` | `string` | - | Additional CSS classes |
+
+### Example
+
+```tsx filename="MediaPickerExample.tsx" copy
+<MediaPicker
+  open={true}
+  onOpenChange={setOpen}
+  multiple
+  maxSelection={10}
+  mediaType="photo"
+  onSelect={handleSelect}
+/>
+```
+
+## MediaPickerButton
+
+A button component that opens the picker on click.
+
+### Props
+
+Inherits all props from `MediaPicker`, plus:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | - | Button content |
+| `variant` | `'default' \| 'outline'` | `'default'` | Button style variant |
+
+### Example
+
+```tsx filename="ButtonExample.tsx" copy
+<MediaPickerButton
+  variant="outline"
+  onSelect={handleSelect}
+>
+  Select Images
+</MediaPickerButton>
+```
+
+## Types
+
+### Media
+
+```typescript filename="types.ts" copy
+interface Media {
+  id: number;
+  type: 'photo' | 'video';
+  src: MediaSrc;
+  width: number;
+  height: number;
+  photographer?: string;
+  videographer?: string;
+  alt?: string;
+  duration?: number;
+}
+```
+
+### MediaSrc
+
+```typescript filename="types.ts" copy
+interface MediaSrc {
+  original: string;
+  large?: string;
+  medium?: string;
+  small?: string;
+  thumbnail?: string;
+}
+```
+
+## Hooks
+
+### useMediaPicker
+
+Access the picker state programmatically:
+
+```tsx filename="useMediaPickerExample.tsx" copy
+import { useMediaPicker } from '@larrykoo711/media-picker';
+
+function MyComponent() {
+  const { open, setOpen, selected } = useMediaPicker();
+
+  return (
+    <button onClick={() => setOpen(true)}>
+      Open ({selected.length} selected)
+    </button>
+  );
+}
+```
+
+## CSS Variables
+
+Customize the appearance using CSS variables:
+
+```css filename="globals.css" copy
+:root {
+  --media-picker-primary: #000;
+  --media-picker-background: #fff;
+  --media-picker-border: #e5e7eb;
+  --media-picker-radius: 0.5rem;
+}
+```

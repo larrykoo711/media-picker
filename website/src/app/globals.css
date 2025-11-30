@@ -1,0 +1,369 @@
+@import 'tailwindcss';
+@import '@larrykoo711/media-picker/styles.css';
+
+/* Enable dark mode with class strategy (Nextra uses .dark class on html element) */
+/* IMPORTANT: This MUST come AFTER all @import statements that import tailwindcss */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   Global Styles
+   ============================================ */
+
+/* All buttons should have pointer cursor */
+button {
+  cursor: pointer;
+}
+
+/* ThemeSwitch icon size */
+.nextra-navbar button[title="Change theme"] svg {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* ============================================
+   Border/Line Colors - Consistent across themes
+   Light mode: rgba(128, 128, 128, 0.25)
+   Dark mode: rgba(128, 128, 128, 0.2)
+   ============================================ */
+
+/* Sonner-style sidebar separator with dotted line */
+/* Target separator items in Nextra 4 - they have x:font-semibold class */
+.nextra-sidebar ul.x\:grid > li.x\:font-semibold {
+  padding-top: 1rem !important;
+  margin-top: 0.5rem !important;
+  border-top: 1px dashed rgba(128, 128, 128, 0.25) !important;
+}
+
+/* Dark mode separator */
+.dark .nextra-sidebar ul.x\:grid > li.x\:font-semibold {
+  border-top-color: rgba(128, 128, 128, 0.2) !important;
+}
+
+/* Sidebar right border - dotted line */
+.nextra-sidebar {
+  border-right: 1px dashed rgba(128, 128, 128, 0.25) !important;
+}
+
+.dark .nextra-sidebar {
+  border-right-color: rgba(128, 128, 128, 0.2) !important;
+}
+
+/* Navbar bottom border - dashed line to match sidebar */
+.nextra-navbar-blur {
+  border-bottom: 1px dashed rgba(128, 128, 128, 0.25) !important;
+}
+
+.dark .nextra-navbar-blur {
+  border-bottom-color: rgba(128, 128, 128, 0.2) !important;
+}
+
+/* Hide navbar links (only show logo and GitHub) */
+.nextra-navbar nav > div:not(:first-child):not(:last-child) {
+  display: none !important;
+}
+
+/* Sidebar footer - use dashed border like Sonner */
+.nextra-sidebar-footer {
+  border-top: 1px dashed rgba(128, 128, 128, 0.25) !important;
+  padding-top: 0.75rem !important;
+  margin-top: 0.75rem !important;
+}
+
+.dark .nextra-sidebar-footer {
+  border-top-color: rgba(128, 128, 128, 0.2) !important;
+}
+
+/* Remove TOC panel on the right for cleaner look */
+.nextra-toc {
+  display: none !important;
+}
+
+/* Adjust content width when TOC is hidden */
+article.x\:w-full {
+  max-width: 48rem !important;
+}
+
+/* Hide footer */
+footer {
+  display: none !important;
+}
+
+/* Hide "Last updated" text for cleaner look */
+article > div:has(time) {
+  display: none !important;
+}
+
+/* ============================================
+   Shiki Code Block Styles (Nextra-compatible)
+   ============================================ */
+
+/* Shiki wrapper styles */
+.shiki-wrapper pre {
+  margin: 0 !important;
+  padding: 0.875rem 1rem !important;
+  background: transparent !important;
+}
+
+.shiki-wrapper pre code {
+  display: block;
+  width: fit-content;
+  min-width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Override shiki's inline background color */
+.shiki-wrapper .shiki {
+  background-color: transparent !important;
+}
+
+/* Ensure code spans don't have unwanted backgrounds */
+.shiki-wrapper .shiki span {
+  background-color: transparent !important;
+}
+
+/* ============================================
+   Homepage Full-Width Centered Layout
+   ============================================ */
+
+/* When homepage-wrapper is present, make content area full-width and centered */
+.homepage-wrapper {
+  /* Escape Nextra's content constraints */
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0 !important;
+}
+
+/* ============================================
+   Homepage Light Mode Overrides
+   Override Nextra's default styles for homepage elements
+   ============================================ */
+
+/* Force homepage text colors in light mode */
+.homepage-wrapper h1,
+.homepage-wrapper h2,
+.homepage-wrapper h3 {
+  color: #111827 !important;
+}
+
+.homepage-wrapper p {
+  color: #6b7280 !important;
+}
+
+/* Force link colors - override Nextra's blue link color in light mode */
+.homepage-wrapper a:not(.inline-flex) {
+  color: #4b5563 !important;
+}
+
+.homepage-wrapper a:not(.inline-flex):hover {
+  color: #111827 !important;
+}
+
+/* Get Started button - light mode: dark bg, white text */
+.homepage-wrapper a.bg-gray-900,
+.homepage-wrapper button.bg-gray-900 {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+.homepage-wrapper a.bg-gray-900:hover,
+.homepage-wrapper button.bg-gray-900:hover {
+  background-color: #1f2937 !important;
+}
+
+/* GitHub button - light mode: transparent with dark border */
+.homepage-wrapper a.border-gray-300 {
+  border-color: #d1d5db !important;
+  color: #374151 !important;
+}
+
+.homepage-wrapper a.border-gray-300:hover {
+  border-color: #9ca3af !important;
+  background-color: rgba(243, 244, 246, 0.5) !important;
+  color: #111827 !important;
+}
+
+/* InstallCommand - light mode: dark bg, white text */
+.homepage-wrapper .group.bg-gray-900 {
+  background-color: #111827 !important;
+  border-color: #374151 !important;
+}
+
+.homepage-wrapper .group.bg-gray-900 code {
+  color: #f3f4f6 !important;
+}
+
+.homepage-wrapper .group.bg-gray-900 span.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.homepage-wrapper .group.bg-gray-900 button {
+  color: #9ca3af !important;
+}
+
+.homepage-wrapper .group.bg-gray-900 button:hover {
+  background-color: #374151 !important;
+  color: #e5e7eb !important;
+}
+
+/* Badges - light mode */
+.homepage-wrapper span.bg-gray-100 {
+  background-color: #f3f4f6 !important;
+  border-color: #e5e7eb !important;
+  color: #4b5563 !important;
+}
+
+/* Feature cards - light mode */
+.homepage-wrapper .border-gray-200 {
+  border-color: #e5e7eb !important;
+}
+
+.homepage-wrapper .border-gray-200:hover {
+  border-color: #d1d5db !important;
+}
+
+.homepage-wrapper .bg-gray-100 {
+  background-color: #f3f4f6 !important;
+}
+
+.homepage-wrapper .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+/* Screenshot section - light mode */
+.homepage-wrapper .bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+.homepage-wrapper .bg-gray-200 {
+  background-color: #e5e7eb !important;
+}
+
+/* ============================================
+   Homepage Dark Mode Overrides
+   Override Nextra's default styles for homepage elements
+   ============================================ */
+
+/* Force homepage text colors in dark mode */
+.dark .homepage-wrapper h1,
+.dark .homepage-wrapper h2,
+.dark .homepage-wrapper h3 {
+  color: #ffffff !important;
+}
+
+.dark .homepage-wrapper p {
+  color: #6b7280 !important;
+}
+
+/* Force link colors - override Nextra's blue link color */
+.dark .homepage-wrapper a:not(.inline-flex) {
+  color: #9ca3af !important;
+}
+
+.dark .homepage-wrapper a:not(.inline-flex):hover {
+  color: #ffffff !important;
+}
+
+/* Get Started button - dark mode: white bg, dark text */
+.dark .homepage-wrapper a.bg-gray-900,
+.dark .homepage-wrapper button.bg-gray-900 {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+.dark .homepage-wrapper a.bg-gray-900:hover,
+.dark .homepage-wrapper button.bg-gray-900:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* GitHub button - dark mode: transparent with light border */
+.dark .homepage-wrapper a.border-gray-300 {
+  border-color: #374151 !important;
+  color: #d1d5db !important;
+}
+
+.dark .homepage-wrapper a.border-gray-300:hover {
+  border-color: #6b7280 !important;
+  background-color: rgba(55, 65, 81, 0.5) !important;
+  color: #ffffff !important;
+}
+
+/* InstallCommand - dark mode: light bg, dark text */
+.dark .homepage-wrapper .bg-gray-900 {
+  background-color: #f3f4f6 !important;
+  border-color: #d1d5db !important;
+}
+
+.dark .homepage-wrapper .bg-gray-900 code {
+  color: #111827 !important;
+}
+
+.dark .homepage-wrapper .bg-gray-900 span.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.dark .homepage-wrapper .bg-gray-900 button {
+  color: #6b7280 !important;
+}
+
+.dark .homepage-wrapper .bg-gray-900 button:hover {
+  background-color: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+/* Badges - dark mode */
+.dark .homepage-wrapper span.bg-gray-100 {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #9ca3af !important;
+}
+
+/* Feature cards - dark mode */
+.dark .homepage-wrapper .border-gray-200 {
+  border-color: #1f2937 !important;
+}
+
+.dark .homepage-wrapper .border-gray-200:hover {
+  border-color: #374151 !important;
+}
+
+.dark .homepage-wrapper .bg-gray-100 {
+  background-color: #1f2937 !important;
+}
+
+.dark .homepage-wrapper .text-gray-600 {
+  color: #9ca3af !important;
+}
+
+/* Screenshot section - dark mode */
+.dark .homepage-wrapper .bg-gray-50 {
+  background-color: rgba(31, 41, 55, 0.5) !important;
+}
+
+.dark .homepage-wrapper .bg-gray-200 {
+  background-color: #374151 !important;
+}
+
+/* Section borders */
+.dark .homepage-wrapper .border-gray-200 {
+  border-color: #1f2937 !important;
+}
+
+/* Hide sidebar on homepage */
+:has(.homepage-wrapper) .nextra-sidebar {
+  display: none !important;
+}
+
+/* Hide copy page button and other tools on homepage */
+:has(.homepage-wrapper) article > div:first-child {
+  display: none !important;
+}
+
+/* Ensure the main content is not constrained by Nextra's article wrapper */
+:has(.homepage-wrapper) article {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

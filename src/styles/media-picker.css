@@ -1,0 +1,155 @@
+@import 'tailwindcss';
+
+/* Media Picker CSS Custom Properties for theming */
+@theme {
+  /* Colors - using CSS custom properties for flexibility */
+  --color-base-100: var(--mp-base-100, #ffffff);
+  --color-base-200: var(--mp-base-200, #f8fafc);
+  --color-base-300: var(--mp-base-300, #e2e8f0);
+  --color-base-content: var(--mp-base-content, #1e293b);
+  --color-primary: var(--mp-primary, #3b82f6);
+  --color-primary-content: var(--mp-primary-content, #ffffff);
+  --color-neutral: var(--mp-neutral, #1e293b);
+  --color-neutral-content: var(--mp-neutral-content, #ffffff);
+  --color-success: var(--mp-success, #22c55e);
+  --color-success-content: var(--mp-success-content, #ffffff);
+  --color-error: var(--mp-error, #ef4444);
+  --color-error-content: var(--mp-error-content, #ffffff);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .media-picker *,
+  .media-picker *::before,
+  .media-picker *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Base component layer */
+@layer components {
+  /* Modal styling - use native dialog behavior */
+  dialog.modal {
+    @apply fixed inset-0 z-50 m-0 h-screen max-h-none w-screen max-w-none;
+    @apply flex items-center justify-center;
+    @apply bg-transparent border-none p-0;
+  }
+
+  dialog.modal:not([open]) {
+    @apply hidden;
+  }
+
+  dialog.modal::backdrop {
+    @apply bg-black/60;
+  }
+
+  .modal-box {
+    @apply bg-base-100 rounded-lg shadow-xl;
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 -z-10 bg-transparent;
+  }
+
+  .modal-backdrop button {
+    @apply w-full h-full cursor-default;
+  }
+
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-4 py-2 rounded-lg font-medium;
+    @apply transition-colors cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-content hover:bg-primary/90;
+  }
+
+  .btn-neutral {
+    @apply bg-neutral text-neutral-content hover:bg-neutral/90;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-base-200;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .btn-xs {
+    @apply px-2 py-1 text-xs;
+  }
+
+  .btn-circle {
+    @apply rounded-full p-2;
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* Alert styling */
+  .alert {
+    @apply flex items-center gap-2 p-4 rounded-lg;
+    @apply bg-base-200 text-base-content;
+  }
+
+  .alert-error {
+    @apply bg-error/10 text-error;
+  }
+
+  /* Badge styling */
+  .badge {
+    @apply inline-flex items-center justify-center;
+    @apply px-2 py-0.5 text-xs rounded-full;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-base-300 animate-pulse;
+  }
+
+  /* Loading spinner */
+  .loading {
+    @apply inline-block;
+  }
+
+  .loading-dots {
+    @apply w-4 h-4;
+  }
+
+  .loading-spinner {
+    @apply w-8 h-8 border-4 border-current rounded-full;
+    @apply border-t-transparent animate-spin;
+  }
+
+  .loading-lg {
+    @apply w-12 h-12;
+  }
+
+  .loading-md {
+    @apply w-8 h-8;
+  }
+}
+
+/* Dark mode color scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mp-base-100: #1e293b;
+    --mp-base-200: #334155;
+    --mp-base-300: #475569;
+    --mp-base-content: #f8fafc;
+    --mp-primary: #60a5fa;
+    --mp-primary-content: #1e293b;
+    --mp-neutral: #f8fafc;
+    --mp-neutral-content: #1e293b;
+    --mp-success: #4ade80;
+    --mp-success-content: #1e293b;
+    --mp-error: #f87171;
+    --mp-error-content: #1e293b;
+  }
+}

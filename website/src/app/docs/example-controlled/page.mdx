@@ -1,0 +1,62 @@
+# Controlled Mode Example
+
+Full control over the picker state.
+
+## Demo
+
+import { ControlledDemo } from '@/components/Demo'
+
+<ControlledDemo />
+
+## Code
+
+```tsx filename="ControlledExample.tsx" copy
+import { useState } from 'react';
+import { MediaPicker } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+export default function ControlledExample() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [media, setMedia] = useState(null);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>
+        Open Picker
+      </button>
+
+      <span>State: {isOpen ? 'Open' : 'Closed'}</span>
+
+      <MediaPicker
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        onSelect={(m) => {
+          setMedia(Array.isArray(m) ? m[0] : m);
+          setIsOpen(false);
+        }}
+        onCancel={() => setIsOpen(false)}
+      />
+
+      {media && (
+        <img src={media.src.medium} alt={media.alt} />
+      )}
+    </div>
+  );
+}
+```
+
+## Controlled Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `open` | `boolean` | Control the open state |
+| `onOpenChange` | `(open: boolean) => void` | Called when open state should change |
+| `onSelect` | `(media: Media[]) => void` | Called when selection is confirmed |
+| `onCancel` | `() => void` | Called when picker is cancelled |
+
+## Use Cases
+
+- Persist selection across sessions
+- Implement custom open/close triggers
+- Sync selection with form state
+- Preview selected items outside the picker

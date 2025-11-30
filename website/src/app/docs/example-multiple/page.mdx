@@ -1,0 +1,45 @@
+# Multi-Selection Example
+
+Select multiple media items at once.
+
+## Demo
+
+import { MultipleDemo } from '@/components/Demo'
+
+<MultipleDemo />
+
+## Code
+
+```tsx filename="MultiSelectExample.tsx" copy
+import { MediaPickerButton } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+export default function MultiSelectExample() {
+  const handleSelect = (media) => {
+    console.log(`Selected ${media.length} items:`, media);
+  };
+
+  return (
+    <MediaPickerButton
+      multiple
+      maxSelection={5}
+      onSelect={handleSelect}
+    >
+      Select Multiple (max 5)
+    </MediaPickerButton>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `multiple` | `boolean` | `false` | Enable multi-selection mode |
+| `maxSelection` | `number` | `Infinity` | Maximum number of items to select |
+
+## Features
+
+- Select up to N items with `maxSelection`
+- Visual indicator shows selection count
+- Clear all selections with one click

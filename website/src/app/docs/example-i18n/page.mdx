@@ -1,0 +1,67 @@
+# Internationalization Example
+
+Support multiple languages in the picker UI.
+
+## Demo
+
+import { I18nDemo } from '@/components/Demo'
+
+<I18nDemo />
+
+## Code
+
+```tsx filename="I18nExample.tsx" copy
+import { MediaPickerButton } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+const zhTexts = {
+  title: '选择素材',
+  searchPlaceholder: '搜索图片或视频...',
+  photosTab: '图片',
+  videosTab: '视频',
+  cancel: '取消',
+  confirm: '确认',
+};
+
+export default function I18nExample() {
+  return (
+    <MediaPickerButton
+      texts={zhTexts}
+      onSelect={(media) => console.log(media)}
+    >
+      选择素材
+    </MediaPickerButton>
+  );
+}
+```
+
+## Supported Locales
+
+| Locale | Language |
+|--------|----------|
+| `en` | English (default) |
+| `zh` | Chinese |
+| `ja` | Japanese |
+
+## Custom Translations
+
+You can provide custom translations via the `texts` prop:
+
+```tsx filename="CustomTexts.tsx" copy
+const customTexts = {
+  title: 'Select Media',
+  searchPlaceholder: 'Search...',
+  photosTab: 'Photos',
+  videosTab: 'Videos',
+  cancel: 'Cancel',
+  confirm: 'Confirm',
+};
+
+<MediaPickerButton texts={customTexts} />
+```
+
+## Features
+
+- Built-in translations for common languages
+- Override any string with custom text
+- Full control over UI text

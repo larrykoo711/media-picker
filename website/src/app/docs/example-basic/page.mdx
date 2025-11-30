@@ -1,0 +1,35 @@
+# Basic Example
+
+The simplest way to use Media Picker.
+
+## Demo
+
+import { BasicDemo } from '@/components/Demo'
+
+<BasicDemo />
+
+## Code
+
+```tsx filename="BasicExample.tsx" copy
+import { MediaPickerButton } from '@larrykoo711/media-picker';
+import '@larrykoo711/media-picker/styles.css';
+
+export default function BasicExample() {
+  const handleSelect = (media) => {
+    console.log('Selected media:', media);
+  };
+
+  return (
+    <MediaPickerButton onSelect={handleSelect}>
+      Select Media
+    </MediaPickerButton>
+  );
+}
+```
+
+## Features
+
+- Single selection mode by default
+- Search photos and videos from Pexels
+- Responsive grid layout
+- Dark mode support
