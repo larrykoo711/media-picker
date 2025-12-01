@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import '@larrykoo711/media-picker/styles.css';
+@import '@koo-labs/media-picker/styles.css';
 
 /* Enable dark mode with class strategy (Nextra uses .dark class on html element) */
 /* IMPORTANT: This MUST come AFTER all @import statements that import tailwindcss */

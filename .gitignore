@@ -32,3 +32,8 @@ pnpm-debug.log*
 # Cache
 .eslintcache
 .prettiercache
+
+# Bmad VibeCoding Workflow
+.bmad-core
+.claude
+docs/

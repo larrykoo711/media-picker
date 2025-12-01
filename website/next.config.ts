@@ -6,7 +6,7 @@ const withNextra = nextra({
 });
 
 export default withNextra({
-  transpilePackages: ['@larrykoo711/media-picker'],
+  transpilePackages: ['@koo-labs/media-picker'],
   turbopack: {
     resolveAlias: {
       // Path to mdx-components file with extension

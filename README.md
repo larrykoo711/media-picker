@@ -1,11 +1,11 @@
 <div align="center">
 
-# @larrykoo711/media-picker
+# @koo-labs/media-picker
 
 **Drop-in media picker for AIGC apps. Pexels-powered. Zero config.**
 
-[![npm](https://img.shields.io/npm/v/@larrykoo711/media-picker.svg?style=flat-square)](https://www.npmjs.com/package/@larrykoo711/media-picker)
-[![bundle](https://img.shields.io/bundlephobia/minzip/@larrykoo711/media-picker?style=flat-square)](https://bundlephobia.com/package/@larrykoo711/media-picker)
+[![npm](https://img.shields.io/npm/v/@koo-labs/media-picker.svg?style=flat-square)](https://www.npmjs.com/package/@koo-labs/media-picker)
+[![bundle](https://img.shields.io/bundlephobia/minzip/@koo-labs/media-picker?style=flat-square)](https://bundlephobia.com/package/@koo-labs/media-picker)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
 [Docs](https://media-picker.vercel.app) · [Demo](https://media-picker.vercel.app) · [Issues](https://github.com/larrykoo711/media-picker/issues)
@@ -19,14 +19,14 @@
 ## Install
 
 ```bash
-pnpm add @larrykoo711/media-picker
+pnpm add @koo-labs/media-picker
 ```
 
 ## Usage
 
 ```tsx
-import { MediaPickerButton } from '@larrykoo711/media-picker';
-import '@larrykoo711/media-picker/styles.css';
+import { MediaPickerButton } from '@koo-labs/media-picker';
+import '@koo-labs/media-picker/styles.css';
 
 <MediaPickerButton onSelect={(media) => console.log(media)}>
   Pick Media
@@ -68,7 +68,7 @@ const [open, setOpen] = useState(false);
 
 ```tsx
 // Use proxy mode in production
-import { configurePexelsClient } from '@larrykoo711/media-picker';
+import { configurePexelsClient } from '@koo-labs/media-picker';
 
 configurePexelsClient({
   proxyUrl: '/api/pexels',  // Your backend proxy
