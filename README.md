@@ -8,7 +8,7 @@
 [![bundle](https://img.shields.io/bundlephobia/minzip/@koo-labs/media-picker?style=flat-square)](https://bundlephobia.com/package/@koo-labs/media-picker)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
-[Docs](https://media-picker.vercel.app) · [Demo](https://media-picker.vercel.app) · [Issues](https://github.com/larrykoo711/media-picker/issues)
+[Docs](https://media-picker-nine.vercel.app) · [Demo](https://media-picker-nine.vercel.app) · [Issues](https://github.com/larrykoo711/media-picker/issues)
 
 </div>
 

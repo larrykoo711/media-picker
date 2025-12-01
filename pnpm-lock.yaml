@@ -117,6 +117,9 @@ importers:
       '@koo-labs/media-picker':
         specifier: workspace:*
         version: link:..
+      lucide-react:
+        specifier: ^0.548.0
+        version: 0.548.0(react@19.2.0)
       next:
         specifier: ^15.0.0
         version: 15.5.6(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)

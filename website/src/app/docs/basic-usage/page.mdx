@@ -7,8 +7,8 @@ Learn how to integrate Media Picker into your React application.
 The most basic usage of Media Picker:
 
 ```tsx filename="App.tsx" copy
-import { MediaPicker } from '@larrykoo711/media-picker';
-import '@larrykoo711/media-picker/styles.css';
+import { MediaPicker } from '@koo-labs/media-picker';
+import '@koo-labs/media-picker/styles.css';
 
 function App() {
   const handleSelect = (media) => {
@@ -26,7 +26,7 @@ function App() {
 Use `MediaPickerButton` for a button-triggered picker:
 
 ```tsx filename="App.tsx" copy
-import { MediaPickerButton } from '@larrykoo711/media-picker';
+import { MediaPickerButton } from '@koo-labs/media-picker';
 
 function App() {
   return (
@@ -45,7 +45,7 @@ For full control over the picker state:
 
 ```tsx filename="ControlledPicker.tsx" copy
 import { useState } from 'react';
-import { MediaPicker } from '@larrykoo711/media-picker';
+import { MediaPicker } from '@koo-labs/media-picker';
 
 function App() {
   const [open, setOpen] = useState(false);
