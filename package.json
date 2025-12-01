@@ -1,6 +1,6 @@
 {
   "name": "@koo-labs/media-picker",
-  "version": "0.0.1-rc.20251201-01",
+  "version": "0.0.1-rc",
   "description": "A headless, composable React component library for media selection with Pexels integration",
   "type": "module",
   "main": "./dist/index.cjs",
