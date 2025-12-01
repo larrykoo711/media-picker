@@ -12,7 +12,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@koo-labs/media-picker": "workspace:*",
+    "@koo-labs/media-picker": "^0.0.1-rc",
     "lucide-react": "^0.548.0",
     "next": "^15.0.0",
     "nextra": "^4.0.0",
