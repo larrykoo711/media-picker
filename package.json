@@ -1,6 +1,6 @@
 {
-  "name": "@larrykoo711/media-picker",
-  "version": "0.0.1",
+  "name": "@koo-labs/media-picker",
+  "version": "0.0.1-pre.20251201-07",
   "description": "A headless, composable React component library for media selection with Pexels integration",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -54,6 +54,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@tailwindcss/postcss": "^4.1.17",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -72,6 +74,7 @@
     "prettier-plugin-tailwindcss": "^0.6.12",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "semantic-release": "^25.0.2",
     "tailwindcss": "^4.1.16",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.0",
@@ -96,9 +99,13 @@
     "type": "git",
     "url": "https://github.com/larrykoo711/media-picker.git"
   },
-  "homepage": "https://github.com/larrykoo711/media-picker#readme",
+  "homepage": "https://media-picker-nine.vercel.app",
   "bugs": {
     "url": "https://github.com/larrykoo711/media-picker/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "packageManager": "pnpm@10.23.0"
 }

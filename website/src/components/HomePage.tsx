@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Github } from 'lucide-react';
-import { MediaPickerButton, type MediaItem, configurePexelsClient } from '@larrykoo711/media-picker';
+import { MediaPickerButton, type MediaItem, configurePexelsClient } from '@koo-labs/media-picker';
 import { ShikiCode } from './ShikiCode';
 
 // Configure API proxy
@@ -17,7 +17,7 @@ if (typeof window !== 'undefined') {
 // Installation command component with copy button
 function InstallCommand() {
   const [copied, setCopied] = useState(false);
-  const command = 'pnpm add @larrykoo711/media-picker';
+  const command = 'pnpm add @koo-labs/media-picker';
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(command);
@@ -117,8 +117,8 @@ function LiveDemo() {
 }
 
 // Quick start code
-const quickStartCode = `import { MediaPickerButton } from '@larrykoo711/media-picker';
-import '@larrykoo711/media-picker/styles.css';
+const quickStartCode = `import { MediaPickerButton } from '@koo-labs/media-picker';
+import '@koo-labs/media-picker/styles.css';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, type ReactNode } from 'react';
-import { MediaPickerButton, MediaPicker, type MediaItem, configurePexelsClient } from '@larrykoo711/media-picker';
+import { MediaPickerButton, MediaPicker, type MediaItem, configurePexelsClient } from '@koo-labs/media-picker';
 import { ShikiCode } from './ShikiCode';
 
 // Configure API proxy
